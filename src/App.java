@@ -1,5 +1,7 @@
 import java.util.List;
 
+import controllers.LibroController;
+import java.util.Map;
 import models.Book;
 
 public class App {
@@ -31,5 +33,13 @@ public class App {
                 new Book("Ciberseguridad", "Pedro León", 2023),
                 new Book("Blockchain", "Marta Ríos", 2021),
                 new Book("Machine Learning", "Cristina Gómez", 2022));
+
+        LibroController controller = new LibroController();
+        Map<Book, Book> resultado = controller.procesarLibros(libros);
+
+        System.out.println("📚 Libros ordenados y sin duplicados:");
+        for (Book b : resultado.values()) {
+            System.out.println(b);
+        }
     }
 }
